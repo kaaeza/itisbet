@@ -1,0 +1,14 @@
+# Compilati
+*.o
+*.exe
+*.out
+Makefile.win
+
+# Cartelle
+/build/
+/pdfEroba/
+/foto/
+/-p/
+# File Dev C++
+*.dev
+*.layout

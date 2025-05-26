@@ -1,0 +1,40 @@
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+
+SRC_DIR  = src
+BUILD_DIR = build
+BIN_DIR  = bin
+
+OBJ      = $(BUILD_DIR)/blackjack.o $(BUILD_DIR)/main.o $(BUILD_DIR)/roulette.o $(BUILD_DIR)/utils.o $(BUILD_DIR)/craps.o
+BIN      = $(BIN_DIR)/ItisBet.exe
+
+LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+
+CXXFLAGS = $(CXXINCS) -Wall -Wextra -pedantic
+CFLAGS   = $(INCS) -Wall -Wextra -pedantic
+
+.PHONY: all clean
+
+all: $(BIN)
+
+# Regola per creare la directory build se non esiste
+$(BUILD_DIR):
+	if not exist "$(BUILD_DIR)" mkdir $(BUILD_DIR)
+
+# Regola per creare la directory bin se non esiste
+$(BIN_DIR):
+	if not exist "$(BIN_DIR)" mkdir $(BIN_DIR)
+
+# Linka l'eseguibile (crea la cartella bin se serve)
+$(BIN): $(OBJ) | $(BIN_DIR)
+	$(CC) $(OBJ) -o $(BIN) $(LIBS)
+
+# Compila i .c in .o (crea la cartella build se serve)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
+	$(CC) -c $< -o $@ $(CFLAGS)
+
+clean:
+	del /q $(OBJ) $(BIN)
