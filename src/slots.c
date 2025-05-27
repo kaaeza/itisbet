@@ -43,17 +43,17 @@ void giocaSlots(User *utente, char VALUTA[]) {
 			utente->bilancio += 10*scommessa;
 			aggiornaBilancio(utente);
 			printf("JACKPOT!!!\n");
-			printf("Hai vinto %d %s!\nOra hai %d %s.\n", scommessa, VALUTA, utente->bilancio, VALUTA);
+			printf("Hai vinto %d %s!\nOra hai %d %s.\n", 10*scommessa, VALUTA, utente->bilancio, VALUTA);
 			system("pause");
 		} else if(c1 == c2 && c2 == c3) {
 			utente->bilancio += 3*scommessa;
 			aggiornaBilancio(utente);
-			printf("Hai vinto %d %s!\nOra hai %d %s.\n", scommessa, VALUTA, utente->bilancio, VALUTA);
+			printf("Hai vinto %d %s!\nOra hai %d %s.\n", 3*scommessa, VALUTA, utente->bilancio, VALUTA);
 			system("pause");
 		} else if(c1 == c2 || c2 == c3 || c1 == c3) {
 			utente->bilancio += 2*scommessa;
 			aggiornaBilancio(utente);
-			printf("Hai vinto %d %s!\nOra hai %d %s.\n", scommessa, VALUTA, utente->bilancio, VALUTA);
+			printf("Hai vinto %d %s!\nOra hai %d %s.\n", 2*scommessa, VALUTA, utente->bilancio, VALUTA);
 			system("pause");
 		} else {
 			utente->bilancio -= scommessa;
