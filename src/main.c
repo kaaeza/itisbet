@@ -72,7 +72,8 @@ int main(void) {
 void menuMain() {
 	while(true) {
 		int scelta = 0;
-
+	
+		system("cls");
 		printf("Benvenuto %s al %s\n", utente.username, NOME_CASINO);
 		printf("Bilancio attuale: %d\n", utente.bilancio);
 		printf("Fai una scelta:\n");
@@ -80,6 +81,7 @@ void menuMain() {
 		printf("1. Blackjack\n");
 		printf("2. Roulette\n");
 		printf("3. Craps\n");
+		printf("4. Slots\n");
 		printf("...Coming Soon...\n");
 		printf("> ");
 		scanf("%d", &scelta);
@@ -96,6 +98,9 @@ void menuMain() {
 				break;
 			case 3:
 				giocaCraps(&utente, VALUTA);
+				break;
+			case 4:
+				giocaSlots(&utente, VALUTA);
 				break;
 			default:
 				system("cls");

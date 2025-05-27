@@ -6,7 +6,7 @@ SRC_DIR  = src
 BUILD_DIR = build
 BIN_DIR  = bin
 
-OBJ      = $(BUILD_DIR)/blackjack.o $(BUILD_DIR)/main.o $(BUILD_DIR)/roulette.o $(BUILD_DIR)/utils.o $(BUILD_DIR)/craps.o
+OBJ      = $(BUILD_DIR)/blackjack.o $(BUILD_DIR)/main.o $(BUILD_DIR)/roulette.o $(BUILD_DIR)/utils.o $(BUILD_DIR)/craps.o $(BUILD_DIR)/slots.o
 BIN      = $(BIN_DIR)/ItisBet.exe
 
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
@@ -37,4 +37,5 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(CC) -c $< -o $@ $(CFLAGS)
 
 clean:
-	del /q $(OBJ) $(BIN)
+	-del /q $(BUILD_DIR)\*.o
+	-del /q $(BIN_DIR)\ItisBet.exe
