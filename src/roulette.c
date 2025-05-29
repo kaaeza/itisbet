@@ -10,21 +10,9 @@
 
 void giocaRoulette(User *utente, char VALUTA[]) {
 	while(true) {
-		int vincita_prob, scommessa, scelta_scommessa = 0;
+		int scommessa = accettaScommessa(utente->bilancio, VALUTA);
+		int vincita_prob, scelta_scommessa = 0;
 		int numero_s = -1;
-		while(true) { // while scommessa
-			system("cls");
-			printf("Hai %d %s\n", utente->bilancio, VALUTA);
-			printf("Quanto scommetti:\n> ");
-			scanf("%d", &scommessa);
-
-			if(scommessa > utente->bilancio) {
-				system("cls");
-				printf("Scommessa troppo alta!\nHai massimo %d %s.\n", utente->bilancio, VALUTA);
-			} else {
-				break;
-			}
-		}
 
 		while(true) { // while sceltaScommessa
 			printf("Su cosa vuoi scommettere?\n");

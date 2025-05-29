@@ -10,20 +10,7 @@
 
 void giocaBlackjack(User *utente, char VALUTA[]) {
 	while(true) {
-		int scommessa = 0;
-		while(true) { // while scommessa
-			system("cls");
-			printf("Hai %d %s\n", utente->bilancio, VALUTA);
-			printf("Quanto scommetti:\n> ");
-			scanf("%d", &scommessa);
-
-			if(scommessa > utente->bilancio) {
-				system("cls");
-				printf("Scommessa troppo alta!\nHai massimo %d %s.\n", utente->bilancio, VALUTA);
-			} else {
-				break;
-			}
-		}
+		int scommessa = accettaScommessa(utente->bilancio, VALUTA);
 
 		int carteBanco[20] = {0};
 		int carteGiocatore[20] = {0};

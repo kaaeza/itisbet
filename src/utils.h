@@ -10,5 +10,6 @@ void scriviFile(char * nameScrivi);
 bool checkCredentials(User *utente, char *nameCheck);
 int sommaArray(int array[], size_t size);
 void aggiornaBilancio(User *utente);
+int accettaScommessa(int max, char VALUTA[]);
 
 #endif

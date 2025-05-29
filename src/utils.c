@@ -89,3 +89,25 @@ int sommaArray(int array[], size_t size) {
 
 	return somma;
 }
+
+int accettaScommessa(int max, char VALUTA[]) {
+	
+	int scommessa = 0;
+	while(true) { // while scommessa
+			system("cls");
+			printf("Hai %d %s\n", max, VALUTA);
+			printf("Quanto scommetti:\n> ");
+			scanf("%d", &scommessa);
+
+			if(scommessa > max || scommessa <= 0) {
+				system("cls");
+				printf("Importo non valido!\nHai massimo %d %s.\n", max, VALUTA);
+			} else {
+				break;
+			}
+		}
+		
+	system("cls");
+		
+	return scommessa;
+}
